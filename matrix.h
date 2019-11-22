@@ -54,6 +54,8 @@ public:
         for(int i = 0; i <= column; ++i)
             current = current->next;
 
+        // No está eliminando el nodo si es 0
+
         bool nodeCreated = false;
         for(int i = 0; i <= row; ++i) {
             if(!current->head && current->row == row) break;
@@ -83,6 +85,9 @@ public:
             current->value = value;
         }
     }
+
+    // Tus operaciones se ven afectadas si no trabajas directamente con los punteros
+
     T operator()(unsigned row, unsigned column) const {
         if(row > rows || column > columns) throw runtime_error("error");
         Node<T> *current = this->root;
